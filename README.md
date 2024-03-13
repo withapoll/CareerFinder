@@ -1,3 +1,3 @@
 just learned React Native, so I decided to build a small Job Search app with HeadHunter API
 #
-![CareerFinder App](https://github.com/withapoll/CareerFinder/assets/59768263/287d7da5-5f00-4a92-8eb0-5475ccb5972d)
+<img width="1080" alt="CareerFinder App" src="https://github.com/withapoll/CareerFinder/assets/59768263/57ae53b6-1beb-4e73-b42a-ebb906064759">
