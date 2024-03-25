@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   StatusBar,
   StyleSheet,
@@ -7,9 +8,11 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  Image,
 } from "react-native";
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchInput = (text) => {
@@ -57,9 +60,20 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View style={styles.WorkAdvices}>
-          <TouchableOpacity>
-            <Text style={styles.AdviceBox}>How to prepare your resume 🤔</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("PrepareResume")}
+          >
+            <View style={styles.AdviceBox}>
+              <View style={styles.textContainer}>
+                <Text>How to prepare your resume 🤔</Text>
+              </View>
+              <Image
+                style={styles.Image}
+                source={require("../assets/work-illustration.png")}
+              />
+            </View>
           </TouchableOpacity>
+
           <TouchableOpacity>
             <Text style={styles.AdviceBox}>Top 10 mistakes in resume 😱</Text>
           </TouchableOpacity>
@@ -67,29 +81,31 @@ export default function HomeScreen() {
             <Text style={styles.AdviceBox}>Resume Boxes</Text>
           </TouchableOpacity>
         </View>
+
         <StatusBar style="auto" />
       </ScrollView>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
   },
   searchContainer: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#D0D0D0",
     padding: 10,
     borderRadius: 10,
     marginLeft: 15,
     marginTop: 24,
-    marginBottom: 32,
+    marginBottom: 24,
     width: "90%",
     width: 289,
     height: 36,
   },
   searchInput: {
-    fontSize: 16,
+    fontSize: 14,
   },
   quickActionsContainer: {
     flexDirection: "row",
@@ -128,20 +144,35 @@ const styles = StyleSheet.create({
 
     width: 192,
     fontSize: 20,
-    fontWeight: "medium",
+    fontWeight: "bold",
   },
   WorkAdvices: {
     marginLeft: 15,
     marginTop: 24,
   },
   AdviceBox: {
-    backgroundColor: "#FCD3BC",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#EAEAEA",
     padding: 10,
     borderRadius: 15,
     width: 330,
     height: 163,
-    fontSize: 12,
-    fontWeight: "medium",
     marginBottom: 15,
+  },
+
+  textContainer: {
+    width: "35%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 80,
+  },
+
+  Image: {
+    width: "72%",
+    height: 160,
   },
 });
