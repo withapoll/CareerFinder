@@ -25,7 +25,7 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name="Favorite Jobs"
+          name="Favorites"
           component={FavoriteJobs}
           options={{
             headerTitle: () => (
