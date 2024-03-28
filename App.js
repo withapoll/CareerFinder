@@ -56,7 +56,7 @@ export default function App() {
               </Text>
             ),
             tabBarIcon: ({ color, size }) => (
-              <Icon name="home" color={color} size={size} />
+              <Icon name="search" color={color} size={size} />
             ),
           }}
         />

@@ -147,8 +147,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   WorkAdvices: {
-    marginLeft: 15,
     marginTop: 24,
+    alignItems: "center",
   },
   AdviceBox: {
     flexDirection: "row",
