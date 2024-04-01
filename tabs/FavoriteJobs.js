@@ -19,88 +19,108 @@ export default function FavoriteJobs() {
   };
 
   return (
-    <View style={styles.FavoriteJobsList}>
-      <TouchableOpacity style={styles.JobContainer}>
-        <View style={styles.CardHeader}>
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <View style={{ flexDirection: "row", gap: 10 }}>
-              <Image
-                style={styles.Image}
-                source={require("../assets/company-logo.png")}
-              />
-              <View style={{ flexDirection: "column" }}>
-                <Text style={{ fontWeight: "bold", fontSize: 16 }}>
-                  Android Developer Pay App
-                </Text>
-                <Text style={{ fontSize: 14 }}>Yandex</Text>
+    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+      <ScrollView>
+        <StatusBar style="auto" />
+        <View style={styles.header}>
+          <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>Favorites</Text>
+          </View>
+        </View>
+        <View style={styles.FavoriteJobsList}>
+          <TouchableOpacity style={styles.JobContainer}>
+            <View style={styles.CardHeader}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <View style={{ flexDirection: "row", gap: 10 }}>
+                  <Image
+                    style={styles.Image}
+                    source={require("../assets/company-logo.png")}
+                  />
+                  <View style={{ flexDirection: "column" }}>
+                    <Text style={{ fontWeight: "bold", fontSize: 16 }}>
+                      Android Developer Pay App
+                    </Text>
+                    <Text style={{ fontSize: 14 }}>Yandex</Text>
+                  </View>
+                </View>
+                <TouchableOpacity onPress={toggleLike}>
+                  <Icon
+                    name={isLiked ? "heart" : "heart-outline"}
+                    size={25}
+                    color={isLiked ? "red" : "gray"}
+                  />
+                </TouchableOpacity>
               </View>
             </View>
-            <TouchableOpacity onPress={toggleLike}>
-              <Icon
-                name={isLiked ? "heart" : "heart-outline"}
-                size={25}
-                color={isLiked ? "red" : "gray"}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <View style={{ flexDirection: "row", gap: 10 }}>
-            <View style={styles.SalaryLabel}>
-              <Text style={{ color: "#fff" }}>3500$</Text>
-            </View>
-            <View style={styles.ExpirienceLabel}>
-              <Text style={{ color: "#fff" }}>2 Years of Experience</Text>
-            </View>
-          </View>
-          <View style={styles.TimePosted}>
-            <Text style={{ color: "gray" }}>5 Days ago</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.JobContainer}>
-        <View style={styles.CardHeader}>
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <View style={{ flexDirection: "row", gap: 10 }}>
-              <Image
-                style={styles.Image}
-                source={require("../assets/company-logo-2.png")}
-              />
-              <View style={{ flexDirection: "column" }}>
-                <Text style={{ fontWeight: "bold", fontSize: 16 }}>
-                  Android Developer Kotlin
-                </Text>
-                <Text style={{ fontSize: 14 }}>red_mad_robot</Text>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <View style={{ flexDirection: "row", gap: 10 }}>
+                <View style={styles.SalaryLabel}>
+                  <Text style={{ color: "#fff" }}>3500$</Text>
+                </View>
+                <View style={styles.ExpirienceLabel}>
+                  <Text style={{ color: "#fff" }}>2 Years of Experience</Text>
+                </View>
+              </View>
+              <View style={styles.TimePosted}>
+                <Text style={{ color: "gray" }}>5 Days ago</Text>
               </View>
             </View>
-            <TouchableOpacity onPress={toggleLike}>
-              <Icon
-                name={isLiked ? "heart" : "heart-outline"}
-                size={25}
-                color={isLiked ? "red" : "gray"}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <View style={{ flexDirection: "row", gap: 10 }}>
-            <View style={styles.SalaryLabel}>
-              <Text style={{ color: "#fff" }}>2390$</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.JobContainer}>
+            <View style={styles.CardHeader}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <View style={{ flexDirection: "row", gap: 10 }}>
+                  <Image
+                    style={styles.Image}
+                    source={require("../assets/company-logo-2.png")}
+                  />
+                  <View style={{ flexDirection: "column" }}>
+                    <Text style={{ fontWeight: "bold", fontSize: 16 }}>
+                      Android Developer Kotlin
+                    </Text>
+                    <Text style={{ fontSize: 14 }}>red_mad_robot</Text>
+                  </View>
+                </View>
+                <TouchableOpacity onPress={toggleLike}>
+                  <Icon
+                    name={isLiked ? "heart" : "heart-outline"}
+                    size={25}
+                    color={isLiked ? "red" : "gray"}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
-            <View style={styles.ExpirienceLabel}>
-              <Text style={{ color: "#fff" }}>1 Year of Experience</Text>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <View style={{ flexDirection: "row", gap: 10 }}>
+                <View style={styles.SalaryLabel}>
+                  <Text style={{ color: "#fff" }}>2390$</Text>
+                </View>
+                <View style={styles.ExpirienceLabel}>
+                  <Text style={{ color: "#fff" }}>1 Year of Experience</Text>
+                </View>
+              </View>
+              <View style={styles.TimePosted}>
+                <Text style={{ color: "gray" }}>7 Days ago</Text>
+              </View>
             </View>
-          </View>
-          <View style={styles.TimePosted}>
-            <Text style={{ color: "gray" }}>7 Days ago</Text>
-          </View>
+          </TouchableOpacity>
+          <StatusBar style="auto" />
         </View>
-      </TouchableOpacity>
-      <StatusBar style="auto" />
+      </ScrollView>
     </View>
   );
 }
@@ -111,8 +131,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
   },
+  header: {
+    alignItems: "center",
+    marginTop: 48,
+  },
+  headerContainer: {
+    height: "fit-content",
+    backgroundColor: "#fff",
+    marginBottom: 15,
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
   JobContainer: {
-    marginTop: 15,
     backgroundColor: "#fff",
     padding: 10,
     margin: 10,

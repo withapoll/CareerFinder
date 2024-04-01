@@ -10,6 +10,7 @@ import {
   ScrollView,
   Image,
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -32,15 +33,42 @@ export default function HomeScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.searchContainer}>
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search..."
-            value={searchQuery}
-            onChangeText={handleSearchInput}
+      <ScrollView
+        stickyHeaderIndices={[0]}
+        contentContainerStyle={styles.container}
+      >
+        <View style={styles.headerContainer}>
+          <View style={styles.header}>
+            <View style={styles.locationContainer}>
+              <Icon name="location-outline" color="#B8BFFF" size={24} />
+              <Text style={styles.locationText}>Moscow</Text>
+            </View>
+            <Text style={styles.headerText}>Search</Text>
+          </View>
+        </View>
+        <View style={styles.searchBar}>
+          <View style={styles.searchContainer}>
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Search..."
+              value={searchQuery}
+              onChangeText={handleSearchInput}
+            />
+            <Icon
+              name="close"
+              color="#D0D0D0"
+              size={16}
+              onPress={() => setSearchQuery("")}
+            />
+          </View>
+          <Icon
+            name="filter"
+            color="#828282"
+            size={24}
+            onPress={() => console.log("Filter pressed")}
           />
         </View>
+
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -91,6 +119,34 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
   },
+  header: {
+    flexDirection: "row",
+    marginTop: 48,
+    marginLeft: 15,
+    gap: 45,
+  },
+  headerContainer: {
+    height: 90,
+    backgroundColor: "#fff",
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginLeft: 10,
+  },
+  locationContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  locationText: {
+    fontSize: 14,
+    marginLeft: 5,
+  },
+  searchBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 15,
+  },
   searchContainer: {
     backgroundColor: "#fff",
     borderWidth: 1,
@@ -102,7 +158,10 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     width: "90%",
     width: 289,
-    height: 36,
+    height: 40,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   searchInput: {
     fontSize: 14,
@@ -141,7 +200,6 @@ const styles = StyleSheet.create({
   TextContainer: {
     marginLeft: 15,
     marginTop: 10,
-
     width: 192,
     fontSize: 20,
     fontWeight: "bold",
