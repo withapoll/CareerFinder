@@ -9,9 +9,11 @@ import { useNavigation } from "@react-navigation/native";
 import HomeScreen from "./tabs/HomeScreen";
 import FavoriteJobs from "./tabs/FavoriteJobs";
 import PrepareResume from "./tabs/work advices/PrepareResume";
+import JobPage from "./tabs/JobPage";
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
+const FavoriteStack = createStackNavigator();
 
 function HomeStackScreen() {
   const navigation = useNavigation();
@@ -49,6 +51,23 @@ function HomeStackScreen() {
         }}
       />
     </HomeStack.Navigator>
+  );
+}
+
+function FavoriteStackScreen() {
+  return (
+    <FavoriteStack.Navigator>
+      <FavoriteStack.Screen
+        name="FavoriteJobs"
+        component={FavoriteJobs}
+        options={{ headerShown: false }}
+      />
+      <FavoriteStack.Screen
+        name="JobPage"
+        component={JobPage}
+        options={{ headerShown: false }}
+      />
+    </FavoriteStack.Navigator>
   );
 }
 
@@ -111,7 +130,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Favorites"
-          component={FavoriteJobs}
+          component={FavoriteStackScreen}
           options={{
             headerShown: false,
             headerTitle: () => (
